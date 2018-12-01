@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="deliverySlotItemVM"
+            type="com.homesordervendor.user.deliveryslot.viewmodel.DeliverySlotItemVM"/>
+
+        <variable
+            name="slots"
+            type="com.homesordervendor.user.deliveryslot.model.Slots"/>
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@{slots.day}"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:onClick="@{(v) -> deliverySlotItemVM.onItemSelected(v,slots)}"
+            android:checked="@={slots.morning}"
+            android:id="@+id/sunday_morning_check"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:button="@drawable/custom_checkbox" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:onClick="@{(v) -> deliverySlotItemVM.onItemSelected(v,slots)}"
+            android:checked="@={slots.noon}"
+            android:id="@+id/sunday_noon_check"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:button="@drawable/custom_checkbox" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:onClick="@{(v) -> deliverySlotItemVM.onItemSelected(v,slots)}"
+            android:checked="@={slots.evening}"
+            android:id="@+id/sunday_evening_check"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:button="@drawable/custom_checkbox" />
+    </LinearLayout>
+</LinearLayout>
+</layout>

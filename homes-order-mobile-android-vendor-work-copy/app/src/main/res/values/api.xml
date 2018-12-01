@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- Development -->
+    <!-- <string name="base_url">http://homesorder.kendev.xyz/homesorder/public/api/</string> -->
+
+     <!-- Production -->
+     <string name="base_url">https://vendors.homesorder.ae/api/</string>
+
+    <string name="terms_and_condition_url_en">https://vendors.homesorder.ae/vendor/terms/en</string>
+    <string name="terms_and_condition_url_ar">https://vendors.homesorder.ae/vendor/terms/ar</string>
+
+  </resources>

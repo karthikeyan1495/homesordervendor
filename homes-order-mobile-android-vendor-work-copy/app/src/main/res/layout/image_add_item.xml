@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="imageURI"
+            type="com.homesordervendor.product.addproduct.model.ImageURI"/>
+        <variable
+            name="imageAddItemVM"
+            type="com.homesordervendor.product.addproduct.viewmodel.ImageAddItemVM"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:onClick="@{(v) -> imageAddItemVM.onClickImageAdd(v,imageURI)}"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/ic_rect_bg"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:productFrontImage="@{imageURI.uri}" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_add_product"
+                android:visibility="@{imageURI.image?View.GONE:View.VISIBLE}" />
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/ic_menu_close"
+                android:onClick="@{(v) -> imageAddItemVM.onClickImageRemove(v,imageURI)}"
+                android:visibility="@{imageURI.image?View.VISIBLE:View.GONE}" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

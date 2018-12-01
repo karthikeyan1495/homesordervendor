@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil"/>
+
+        <variable
+            name="shippingAreaDialogVM"
+            type="com.homesordervendor.product.addproduct.viewmodel.ShippingAreaDialogVM"/>
+
+        <variable
+            name="country"
+            type="com.homesordervendor.user.shippingarea.model.Country"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:text="@string/delivery_coverage"
+                    android:textColor="@color/font_color_1"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                <Button
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_close_black"
+                    android:onClick="@{shippingAreaDialogVM::onClickClose}"/>
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/county_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:theme="@style/TextInputTheme"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:id="@+id/county"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/lightGrey"
+                    android:drawableRight="@drawable/ic_down_arrow"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/select_country"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:onClick="@{(v) -> shippingAreaDialogVM.onClickCountry(v,country)}"
+                    android:text="@{StringUtil.getLanguageName(country.countryNameEN,country.countryNameAR)}"
+                    android:textColor="@android:color/black"
+                    android:theme="@style/TextInputTheme"
+                    app:font="@{@string/san_francisco_text_medium}"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

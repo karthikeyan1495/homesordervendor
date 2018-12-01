@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil"/>
+
+        <variable
+            name="additionalInformationVM"
+            type="com.homesordervendor.user.additionalinformation.viewmodel.AdditionalInformationVM"/>
+
+        <variable
+            name="user"
+            type="com.homesordervendor.user.login.model.User"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/top_bg">
+
+            <LinearLayout
+                android:onClick="@{additionalInformationVM::onClickBack}"
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+                <Button
+                    android:clickable="false"
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/ic_back"/>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/back_btn"
+                android:layout_marginTop="1dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/version_text_view"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="@{StringUtil.welcomeWithName(user.profile.fullname)}"
+                        android:textColor="@color/white"
+                        android:textSize="21sp"
+                        app:font="@{@string/san_francisco_text_medium}"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="@string/you_have_successfully_registered"
+                        android:textColor="@color/white"
+                        android:textSize="19sp"
+                        app:font="@{@string/san_francisco_text_medium}"/>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/card_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="20dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@color/white"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="20dp"
+                                android:text="@string/complete_following_checklist"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="17sp"
+                                app:font="@{@string/san_francisco_text_medium}"/>
+
+                            <RelativeLayout
+                                android:id="@+id/acc_info_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/bg_color_1"
+                                android:onClick="@{additionalInformationVM::onClickAccountInformation}">
+
+                                <CheckBox
+                                    android:id="@+id/acc_info_left_btn"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:button="@drawable/ic_circle_selector"
+                                    android:checked="@{StringUtil.isCheck(user.profile.isaddress)}"
+                                    android:clickable="false"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_toRightOf="@id/acc_info_left_btn"
+                                    android:text="@string/account_information"
+                                    android:textColor="@color/font_color_1"
+                                    android:textSize="16sp"
+                                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                                <Button
+                                    android:id="@+id/acc_info_right_arrow_btn"
+                                    android:layout_width="40dp"
+                                    android:layout_height="50dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/ic_next_arrow"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/delivery_slot_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/bg_color_1"
+                                android:onClick="@{additionalInformationVM::onClickDeliverySlot}">
+
+                                <CheckBox
+                                    android:id="@+id/delivery_slot_left_btn"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:button="@drawable/ic_circle_selector"
+                                    android:checked="@{StringUtil.isCheck(user.profile.isdeliveryslot)}"
+                                    android:clickable="false"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_toRightOf="@id/delivery_slot_left_btn"
+                                    android:text="@string/delivery_slot"
+                                    android:textColor="@color/font_color_1"
+                                    android:textSize="16sp"
+                                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                                <Button
+                                    android:id="@+id/delivery_slot_right_arrow_btn"
+                                    android:layout_width="40dp"
+                                    android:layout_height="50dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/ic_next_arrow"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/shipping_methods_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/bg_color_1"
+                                android:onClick="@{additionalInformationVM::onClickAShippingMethod}">
+
+                                <CheckBox
+                                    android:id="@+id/shipping_methods_left_btn"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:button="@drawable/ic_circle_selector"
+                                    android:checked="@{StringUtil.isCheck(user.profile.isdeliverycost)}"
+                                    android:clickable="false"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_toRightOf="@id/shipping_methods_left_btn"
+                                    android:text="@string/shipping_cost_area"
+                                    android:textColor="@color/font_color_1"
+                                    android:textSize="16sp"
+                                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                                <Button
+                                    android:id="@+id/shipping_methods_right_arrow_btn"
+                                    android:layout_width="40dp"
+                                    android:layout_height="50dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/ic_next_arrow"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/choose_plan_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/bg_color_1"
+                                android:onClick="@{additionalInformationVM::onClickPlan}">
+
+                                <CheckBox
+                                    android:id="@+id/choose_plan_left_btn"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:button="@drawable/ic_circle_selector"
+                                    android:checked="@{StringUtil.isCheck(user.profile.issubscriped)}"
+                                    android:clickable="false"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_toRightOf="@id/choose_plan_left_btn"
+                                    android:text="@string/subscription"
+                                    android:textColor="@color/font_color_1"
+                                    android:textSize="16sp"
+                                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                                <Button
+                                    android:id="@+id/choose_plan_right_arrow_btn"
+                                    android:layout_width="40dp"
+                                    android:layout_height="50dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/ic_next_arrow"/>
+                            </RelativeLayout>
+
+                            <Button
+                                android:id="@+id/get_started_btn"
+                                style="@style/ButtonTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="20dp"
+                                android:layout_marginTop="20dp"
+                                android:alpha="@{StringUtil.accountComplitionStatus(user)? (float)1.0 : (float)0.5}"
+                                android:clickable="@{StringUtil.accountComplitionStatus(user)? true : false}"
+                                android:onClick="@{additionalInformationVM::onClickGetStarted}"
+                                android:text="@string/get_stared"
+                                app:font="@{@string/san_francisco_text_medium}"/>
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

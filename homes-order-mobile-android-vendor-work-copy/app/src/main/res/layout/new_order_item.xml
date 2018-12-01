@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="newItemVM"
+            type="com.homesordervendor.orders.newlist.viewmodel.NewItemVM"/>
+
+        <variable
+            name="orderItem"
+            type="com.homesordervendor.orders.model.OrderItem"/>
+
+        <variable
+            name="orderStatus"
+            type="com.homesordervendor.orders.OrderStatus"/>
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:onClick="@{(v) -> newItemVM.onClickNewItem(v,orderItem)}">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_rect_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/order_id"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"/>
+
+                        <TextView
+                            android:id="@+id/list_item_order_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="@{StringUtil.orderIDFormat(orderItem.increment_id)}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:onClick="@{(v) -> newItemVM.onClickStatusOption(v,orderItem)}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@{StringUtil.isCompleted(orderStatus)?@drawable/ic_order_completed:StringUtil.isCancelled(orderStatus)?@drawable/ic_order_cancelled:@drawable/ic_orange_selector}"/>
+
+                        <TextView
+                            android:id="@+id/list_item_order_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{orderItem.orderStatus}"
+                            android:textColor="@{StringUtil.isCompleted(orderStatus)?@color/green:StringUtil.isCancelled(orderStatus)?@color/red:@color/colorAccent}"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"/>
+                        <TextView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:background="@drawable/ic_more"
+                            android:visibility="@{StringUtil.shopMoreOption(orderStatus)?View.VISIBLE:View.GONE}"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/lightGrey"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delivery_date"
+                            android:textColor="@color/font_color_3"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/list_item_order_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="-"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="@string/payment_mode"
+                            android:textColor="@color/font_color_3"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+
+                        <TextView
+                            android:id="@+id/order_detail_payment_mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{orderItem.payment_mode}"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/delivery_time"
+                            android:textColor="@color/font_color_3"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+
+                        <TextView
+                            android:visibility="gone"
+                            android:id="@+id/list_item_order_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="-"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            android:text="@string/total"
+                            android:textColor="@color/font_color_3"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+
+                        <TextView
+                            android:id="@+id/order_detail_price_total"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{StringUtil.setPrice(orderItem.orderTotal,orderItem.orderTotalInSAR)}"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/customer_name"
+                            android:textColor="@color/font_color_3"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"/>
+
+                        <TextView
+                            android:id="@+id/list_item_customer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{orderItem.customer.get(0).name}"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/customer_phone"
+                            android:textColor="@color/font_color_3"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{orderItem.customer.get(0).phone}"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="15sp"
+                            app:font="@{@string/san_francisco_text_medium}"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/customer_address"
+                        android:textColor="@color/font_color_3"
+                        android:textSize="15sp"
+                        app:font="@{@string/san_francisco_text_medium}"
+                        />
+
+                    <TextView
+                        android:id="@+id/list_item_customer_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="left"
+                        android:text="@{orderItem.customer.get(0).address}"
+                        android:textColor="@color/font_color_1"
+                        android:textSize="15sp"
+                        app:font="@{@string/san_francisco_text_medium}"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

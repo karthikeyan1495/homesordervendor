@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.homesordervendor"
+          android:name="com.homesordervendor.MyApp"
+          android:label="@string/app_name"
+          android:theme="@style/AppTheme"
+          tools:replace="label,theme,name">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:name,android:theme,android:label">
+        <activity
+            android:name=".user.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.register.RegisterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.forgotpassword.ForgotPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.additionalinformation.AdditionalInformationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.subscribe.SubscribeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.deliveryslot.DeliverySlotActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.accountinformation.AccountInformationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.shippingarea.ShippingAreaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".initialscreen.splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".navigationmenu.NavigationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".product.addproduct.AddProductActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".product.promotion.PromotionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".product.featured.FeaturedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".orders.OrderDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+            <intent-filter>
+                <action android:name="OPEN_ACTIVITY_ORDER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".setting.SettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.resetpassword.ResetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".user.holidayplanner.HolidayPlannerDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".initialscreen.language.LanguageSelectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+        </activity>
+
+        <activity android:name=".user.deliveryslot.HolidayActivity"/>
+
+        <activity
+            android:name=".user.staticcontent.StaticContentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+
+        <activity
+            android:name=".product.featured.payment.TelrPaymentSuccessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+
+        <activity
+            android:name=".product.featured.payment.TelrPaymentFailedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NavigationNoActionBar"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+
+        <!-- FCM Notification -->
+
+        <service android:name=".fcm.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_notification_transparent" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+    </application>
+
+</manifest>

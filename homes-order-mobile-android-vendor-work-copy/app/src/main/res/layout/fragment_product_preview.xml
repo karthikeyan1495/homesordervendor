@@ -1,0 +1,261 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil"/>
+
+        <variable
+            name="productPreviewVM"
+            type="com.homesordervendor.product.addproduct.viewmodel.ProductPreviewVM" />
+        <variable
+            name="productModel"
+            type="com.homesordervendor.product.addproduct.model.ProductModel"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context="com.homesordervendor.product.addproduct.ProductPreviewFragment">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="200dp">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/slider_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="10dp" />
+
+            <me.relex.circleindicator.CircleIndicator
+                app:ci_drawable="@drawable/circleindicator_round"
+                android:id="@+id/slider_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:background="@color/line_1" />
+        </RelativeLayout>
+
+          <android.support.v4.widget.NestedScrollView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:text="@{productModel.productNameEnglish}"
+                      android:textColor="@color/font_color_1"
+                      android:textSize="16sp"
+                      android:textStyle="bold"
+                      app:font="@{@string/san_francisco_text_medium}" />
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:text="@{productModel.productNameArabic}"
+                      android:textColor="@color/font_color_1"
+                      android:textSize="16sp"
+                      android:textStyle="bold"
+                      app:font="@{@string/san_francisco_text_medium}" />
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:text="@{StringUtil.categoryParsing(productModel)}"
+                      android:textColor="@color/font_color_1"
+                      android:textSize="15sp"
+                      app:font="@{@string/san_francisco_text_medium}" />
+
+                  <View
+                      android:layout_width="match_parent"
+                      android:layout_height="1dp"
+                      android:layout_alignParentBottom="true"
+                      android:layout_marginTop="10dp"
+                      android:background="@color/line_1" />
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:orientation="horizontal">
+
+                      <LinearLayout
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:orientation="vertical">
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="10dp"
+                              android:text="@string/label_size"
+                              android:textColor="@color/font_color_3"
+                              android:textSize="15sp"
+                              app:font="@{@string/san_francisco_text_medium}" />
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="10dp"
+                              android:text="@string/label_weight"
+                              android:textColor="@color/font_color_3"
+                              android:textSize="15sp"
+                              app:font="@{@string/san_francisco_text_medium}" />
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="10dp"
+                              android:text="@string/label_color"
+                              android:textColor="@color/font_color_3"
+                              android:textSize="15sp"
+                              app:font="@{@string/san_francisco_text_medium}" />
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="10dp"
+                              android:text="@string/label_price"
+                              android:textColor="@color/font_color_3"
+                              android:textSize="15sp"
+                              app:font="@{@string/san_francisco_text_medium}" />
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="10dp"
+                              android:text="@string/label_daily_limit"
+                              android:textColor="@color/font_color_3"
+                              android:textSize="15sp"
+                              app:font="@{@string/san_francisco_text_medium}" />
+
+                          <TextView
+                              android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:layout_marginTop="10dp"
+                              android:text="@string/label_handling_time"
+                              android:textColor="@color/font_color_3"
+                              android:textSize="15sp"
+                              app:font="@{@string/san_francisco_text_medium}" />
+                      </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@{productModel.size}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="15sp"
+                                app:font="@{@string/san_francisco_text_medium}" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@{productModel.weight}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="15sp"
+                                app:font="@{@string/san_francisco_text_medium}" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@{productModel.color}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="15sp"
+                                app:font="@{@string/san_francisco_text_medium}" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@{StringUtil.setPrice(productModel.price)}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="15sp"
+                                app:font="@{@string/san_francisco_text_medium}" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@{productModel.limit}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="15sp"
+                                app:font="@{@string/san_francisco_text_medium}" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@{productModel.time}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="15sp"
+                                app:font="@{@string/san_francisco_text_medium}" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/label_product_description_english"
+                        android:textColor="@color/font_color_3"
+                        android:textSize="15sp"
+                        app:font="@{@string/san_francisco_text_medium}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@{productModel.productDescriptionEnglish}"
+                        android:textColor="@color/font_color_1"
+                        android:textSize="15sp"
+                        app:font="@{@string/san_francisco_text_medium}" />
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:text="@string/label_product_description_arabic"
+                      android:textColor="@color/font_color_3"
+                      android:textSize="15sp"
+                      app:font="@{@string/san_francisco_text_medium}" />
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:text="@{productModel.productDescriptionArabic}"
+                      android:textColor="@color/font_color_1"
+                      android:textSize="15sp"
+                      app:font="@{@string/san_francisco_text_medium}" />
+                </LinearLayout>
+            </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="stateItemVM"
+            type="com.homesordervendor.user.shippingarea.viewmodel.StateItemVM" />
+
+        <variable
+            name="state"
+            type="com.homesordervendor.user.shippingarea.model.State"/>
+
+    </data>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:onClick="@{(v) -> stateItemVM.onClickExpended(v,state)}"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/price_layout"
+                android:text="@{StringUtil.getLanguageName(state.stateNameEN,state.stateNameAR)}"
+                android:textColor="@color/font_color_1"
+                android:textSize="15sp"
+                app:font="@{@string/san_francisco_text_medium}" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/price_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@id/arrow"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/price"
+                    android:textColor="@color/font_color_3"
+                    android:textSize="14sp"
+                    app:font="@{@string/san_francisco_text_medium}" />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/black"
+                    android:padding="2dp"
+                    android:gravity="center"
+                    android:layout_width="40dp"
+                    android:layout_height="25dp"
+                    android:text="@={state.price}"
+                    android:background="@drawable/ic_rect_bg"
+                    android:inputType="numberDecimal"
+                    android:theme="@style/TextInputTheme" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/arrow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:background="@{state.expended?@drawable/ic_up_arrow:@drawable/ic_down_arrow}" />
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:visibility="@{state.expended?View.VISIBLE:View.GONE}"
+            android:id="@+id/street_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/bg_color_3"/>
+    </LinearLayout>
+</layout>

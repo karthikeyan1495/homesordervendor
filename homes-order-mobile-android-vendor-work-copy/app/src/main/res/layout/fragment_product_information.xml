@@ -1,0 +1,313 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="productInformationVM"
+            type="com.homesordervendor.product.addproduct.viewmodel.ProductInformationVM" />
+
+        <variable
+            name="productModel"
+            type="com.homesordervendor.product.addproduct.model.ProductModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            tools:context="com.homesordervendor.product.addproduct.ProductInformationFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/product_details"
+                        android:textColor="@color/font_color_1"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        app:font="@{@string/san_francisco_text_medium}" />
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/add_product_information_product_name_layout_arabic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:theme="@style/ProductTextInputTheme"
+                        app:errorEnabled="true">
+
+                        <EditText
+                            app:font="@{@string/san_francisco_text_regular}"
+                            android:id="@+id/add_product_information_product_name_arabic"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/textlines"
+                            android:hint="@string/product_name_arabic"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:paddingBottom="5dp"
+                            android:text="@={productModel.productNameArabic}"
+                            android:textColor="@color/font_color_1"
+                            android:theme="@style/ProductTextInputTheme" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/add_product_information_product_description_layout_arabic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/ProductTextInputTheme"
+                        app:errorEnabled="true">
+
+                        <EditText
+                            app:font="@{@string/san_francisco_text_regular}"
+                            android:id="@+id/add_product_information_product_description_arabic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/textlines"
+                            android:gravity="top"
+                            android:hint="@string/product_description_arabic"
+                            android:imeOptions="actionDone"
+                            android:inputType="textMultiLine"
+                            android:minHeight="100dp"
+                            android:paddingBottom="5dp"
+                            android:text="@={productModel.productDescriptionArabic}"
+                            android:textColor="@android:color/black"
+                            android:theme="@style/ProductTextInputTheme" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/add_product_information_product_price_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/ProductTextInputTheme"
+                        app:errorEnabled="true">
+
+                        <EditText
+                            app:font="@{@string/san_francisco_text_regular}"
+                            android:id="@+id/add_product_information_product_price"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/textlines"
+                            android:hint="@string/price"
+                            android:inputType="numberDecimal"
+                            android:maxLines="1"
+                            android:paddingBottom="5dp"
+                            android:text="@={productModel.price}"
+                            android:textColor="@android:color/black"
+                            android:theme="@style/ProductTextInputTheme" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/size_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:theme="@style/ProductTextInputTheme"
+                            app:errorEnabled="true">
+
+                            <EditText
+                                app:font="@{@string/san_francisco_text_regular}"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/textlines"
+                                android:hint="@string/size"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingBottom="5dp"
+                                android:text="@={productModel.size}"
+                                android:textColor="@android:color/black"
+                                android:theme="@style/ProductTextInputTheme" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:visibility="@{productModel.isFood?View.GONE:View.VISIBLE}"
+                            android:id="@+id/weigh_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:theme="@style/ProductTextInputTheme"
+                            app:errorEnabled="true">
+
+                            <EditText
+                                app:font="@{@string/san_francisco_text_regular}"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/textlines"
+                                android:hint="@string/weight"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingBottom="5dp"
+                                android:text="@={productModel.weight}"
+                                android:textColor="@android:color/black"
+                                android:theme="@style/ProductTextInputTheme" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/color_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:theme="@style/ProductTextInputTheme"
+                            app:errorEnabled="true">
+
+                            <EditText
+                                app:font="@{@string/san_francisco_text_regular}"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/textlines"
+                                android:hint="@string/color"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingBottom="5dp"
+                                android:text="@={productModel.color}"
+                                android:textColor="@android:color/black"
+                                android:theme="@style/ProductTextInputTheme" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_marginRight="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/limit_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/ProductTextInputTheme"
+                            app:errorEnabled="true">
+
+                            <EditText
+                                app:font="@{@string/san_francisco_text_regular}"
+                                android:id="@+id/limit"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/textlines"
+                                android:hint="@string/order_limit_per_day"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:paddingBottom="5dp"
+                                android:text="@={productModel.limit}"
+                                android:textColor="@android:color/black"
+                                android:theme="@style/ProductTextInputTheme" />
+                        </android.support.design.widget.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/time_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/ProductTextInputTheme"
+                            app:errorEnabled="true">
+
+                            <EditText
+                                app:font="@{@string/san_francisco_text_regular}"
+                                android:id="@+id/time"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/textlines"
+                                android:hint="@string/handling_time_days"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:paddingBottom="5dp"
+                                android:text="@={productModel.time}"
+                                android:textColor="@android:color/black"
+                                android:theme="@style/ProductTextInputTheme" />
+                        </android.support.design.widget.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_delivery_coverage"
+                    android:textColor="@color/font_color_1"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:font="@{@string/san_francisco_text_medium}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:onClick="@{productInformationVM::onClickCoverageArea}"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:button="@drawable/custom_checkbox"
+                        android:checked="@{productModel.deliveryCoverage}"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/override_default_delivery"
+                        android:textColor="@color/font_color_1"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:font="@{@string/san_francisco_text_medium}" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/use_default_delivery_system"
+                    android:textColor="@color/font_color_3"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

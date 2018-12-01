@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="menuItemVM"
+            type="com.homesordervendor.navigationmenu.viewmodel.MenuItemVM"/>
+        <variable
+            name="menu"
+            type="com.homesordervendor.navigationmenu.model.Menu"/>
+    </data>
+
+    <LinearLayout
+        android:onClick="@{(v) -> menuItemVM.onClickMenuItem(v,menu)}"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@{menu.name}"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            android:textColor="@color/font_color_1"
+            android:textSize="17sp"
+            app:font="@{@string/san_francisco_text_medium}" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_1" />
+    </LinearLayout>
+</layout>

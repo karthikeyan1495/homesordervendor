@@ -1,0 +1,393 @@
+<resources>
+
+    <string name="app_name">Homes Order VR</string>
+
+
+    <string name="seller_account">SELLER ACCOUNT</string>
+    <string name="login">Login</string>
+    <string name="email">EMAIL</string>
+    <string name="password">PASSWORD</string>
+    <string name="sign_up">Sign up</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="sign_in">sign in</string>
+    <string name="register">Register</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="save">Save</string>
+
+    <string name="months">for %1$s months</string>
+
+    <string name="create_account">Create Account</string>
+    <string name="full_name">FULL NAME</string>
+    <string name="confirm_password">CONFIRM PASSWORD</string>
+    <string name="shop_name">SHOP NAME</string>
+    <string name="terms_and_conditions">TERMS &amp; CONDITIONS</string>
+    <string name="agree">I agree to</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset">RESET</string>
+    <string name="email_has_been_sent">Email has been sent! Please check your mailbox.</string>
+
+    <string name="hi">Hi, %1$s</string>
+    <string name="you_have_successfully_registered">You have successfully registered to sell with homes order</string>
+    <string name="account_information">Account Information</string>
+    <string name="delivery_slot">Delivery Slot</string>
+    <string name="shipping_methods">Shipping Methods</string>
+    <string name="subscription">Subscription</string>
+    <string name="get_stared">GET STARTED</string>
+    <string name="complete_following_checklist">Complete following checklist to sell your products with us</string>
+
+    <string name="something_went_wrong_while_retrieving_information">Something went wrong while retrieving information. Please try again later.</string>
+    <string name="no_internet">Please check your internet connection</string>
+    <string name="valid_email_address_error">Enter a valid email address</string>
+    <string name="valid_full_name">Enter a valid full name</string>
+    <string name="valid_shop_name">Enter a valid shop name</string>
+    <string name="passwords_match_error">Passwords don\'t match</string>
+    <string name="valid_phone_number">Enter a valid phone number</string>
+    <string name="invalid_password_error">Password must be 8 characters long and must contain at least one upper case, one lower case, one number and one symbol</string>
+    <string name="terms_and_condition_accept_error">Please accept terms and condition</string>
+
+    <string name="version">Version %1$s</string>
+
+    <string name="holiday_calendar">Holiday Calender</string>
+    <string name="you_got_a_vacation_on_your_mind">You got a vacation on your mind?</string>
+    <string name="morning">Morning</string>
+    <string name="noon">Noon</string>
+    <string name="evening">Evening</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="select_country">SELECT COUNTRY</string>
+    <string name="select_area">SELECT AREA</string>
+    <string name="search_area">Search Area</string>
+    <string name="price">PRICE</string>
+    <string name="logout">Logout</string>
+
+    <string name="dob">DOB</string>
+    <string name="address">Address</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="not_specify">NOT SPECIFY</string>
+
+    <string name="error_select_country">Please select country</string>
+    <string name="error_select_city">Please select city</string>
+    <string name="error_select_dob">Please select DOB</string>
+    <string name="error_enter_address">Please enter address</string>
+    <string name="error_select_gender">Please select gender</string>
+
+    <string name="error_shipping_amount">Please enter shipping price</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="logout_alert">Are you sure you want to logout?</string>
+    <string name="stop_promotion_alert">Are you sure you want to stop the promotion?</string>
+    <string name="delete_product_alert">Are you sure you want to delete the product?</string>
+
+
+    <string name="products">Products</string>
+    <string name="featured">Featured</string>
+    <string name="promotion">Promotion</string>
+    <string name="orders">Orders</string>
+    <string name="profile">Profile</string>
+    <string name="bank_information">Bank Information</string>
+    <string name="setting">Settings</string>
+    <string name="holiday_planner">Holiday Planner</string>
+
+
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="add_new_product">Add New Product</string>
+    <string name="choose_category">Choose Category:</string>
+    <string name="food">Food</string>
+    <string name="fashion">Fashion</string>
+    <string name="choose_sub_category">Choose Sub Category:</string>
+    <string name="choose_target_group">Choose Target Group:</string>
+    <string name="select_category">Select Category</string>
+    <string name="product_details">Product Details:</string>
+    <string name="product_name_english">Product Name English</string>
+    <string name="label_product_description_english">Product Description English:</string>
+    <string name="product_description_english">Product Description English</string>
+    <string name="product_name_arabic">Product Name Arabic</string>
+    <string name="product_description_arabic">Product Description Arabic</string>
+    <string name="label_product_description_arabic">Product Description Arabic:</string>
+
+    <string name="size">Size</string>
+    <string name="weight">Weight</string>
+    <string name="color">Color</string>
+    <string name="select_delivery_coverage">Select Delivery Coverage:</string>
+    <string name="override_default_delivery">Override Default Delivery</string>
+    <string name="use_default_delivery_system">Use default delivery system, Select this option you want to define different delivery slot</string>
+    <string name="delivery_coverage">Delivery Coverage:</string>
+    <string name="add_featured_image">Add More Image:</string>
+    <string name="add_front_image">Add Front Image:</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="submit">Submit</string>
+    <string name="error_select_category">Please select category</string>
+    <string name="error_select_sub_category">Please select subcategory</string>
+    <string name="error_select_target_group">Please select target group</string>
+    <string name="error_product_name_english">Please enter product name in english</string>
+    <string name="error_product_description_english">Please enter product description in english</string>
+    <string name="error_product_name_arabic">Please enter product name in arabic</string>
+    <string name="error_product_description_arabic">Please enter product description in arabic</string>
+    <string name="error_size">Please enter product size</string>
+    <string name="error_weight">Please enter product weight</string>
+    <string name="error_color">Please enter product color</string>
+    <string name="error_price">Please enter product price</string>
+    <string name="select_pictures">Select Pictures</string>
+    <string name="error_front_image">Please add front image</string>
+    <string name="error_feature_image">Please add feature image</string>
+    <string name="handling_time_days">Preparation time (in days)</string>
+    <string name="order_limit_per_day">Per day order capacity </string>
+
+    <string name="label_size">Size: </string>
+    <string name="label_color">Color: </string>
+    <string name="label_weight">Weight: </string>
+    <string name="label_price">Price: </string>
+    <string name="label_description">Description: </string>
+    <string name="label_daily_limit">Daily Limit: </string>
+    <string name="label_handling_time">Handling TIme: </string>
+    <string name="category">Category:</string>
+
+    <string name="promote">PROMOTE</string>
+    <string name="add_to_featured">ADD TO FEATURED</string>
+    <string name="product_name">PRODUCT NAME</string>
+    <string name="category_cabs">CATEGORY</string>
+    <string name="promotion_colon">Promotion:</string>
+    <string name="discount_price">DISCOUNT PRICE</string>
+    <string name="from">FROM</string>
+    <string name="to">TO</string>
+    <string name="set_promotion">Set Promotion</string>
+    <string name="set_featured">Set Featured</string>
+
+    <string name="featured_colon">Featured:</string>
+    <string name="stop_promotion">STOP PROMOTION</string>
+
+    <string name="new_tab">NEW</string>
+    <string name="processing_tab">PROCESSING</string>
+    <string name="dispatched_tab">DISPATCHED</string>
+    <string name="delivery_tab">DELIVERY</string>
+    <string name="cancelled_tab">CANCELLED</string>
+
+    <string name="error_discount_price">Please enter discount price</string>
+    <string name="error_from_date">Please select from date</string>
+    <string name="error_to_date">Please select to date</string>
+    <string name="error_blocked_date">This date already blocked please select different date</string>
+
+
+    <string name="business_licence_numbers">Business Licence Number</string>
+    <string name="iban">IBAN</string>
+    <string name="account_number">Account Number</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="account_holder">Account Holder</string>
+    <string name="information_masked">Information is masked for your protection</string>
+    <string name="name_validation">To validate your information, you will later on be requested to submit documents matching the name you just entered (Company Registration in case of business, National ID or Passport in case of individual).</string>
+    <string name="account_information_entry_message">In order to have your listings live, you need to enter your bank account information. Entering a valid bank account information is important for us to wire money to your account after successful purchases.</string>
+
+    <string name="valid_account_holder_error">Enter a valid account holder</string>
+    <string name="valid_bank_name_error">Enter a valid bank name</string>
+    <string name="valid_account_number_error">Enter a valid account number</string>
+    <string name="valid_iban_error">Enter a valid IBAN</string>
+    <string name="valid_business_licence_numbers_error">Enter a valid business licence number</string>
+
+
+    <string name="order_id">Order ID:</string>
+    <string name="waiting">Waiting</string>
+    <string name="delivery_date">DELIVERY DATE:</string>
+    <string name="delivery_time">DELIVERY TIME:</string>
+    <string name="customer_address">CUSTOMER ADDRESS:</string>
+    <string name="customer_name">CUSTOMER NAME:</string>
+    <string name="payment_mode">PAYMENT MODE:</string>
+    <string name="total">TOTAL:</string>
+    <string name="order_details">Order Details:</string>
+    <string name="products_colon">Products:</string>
+
+
+    <string name="current_password">CURRENT PASSWORD</string>
+    <string name="new_password">NEW PASSWORD</string>
+
+    <string name="active">ACTIVE</string>
+    <string name="past">PAST</string>
+    <string name="add_holiday">Add Holiday</string>
+    <string name="update_holiday">Update Holiday</string>
+    <string name="title">TITLE</string>
+    <string name="description">DESCRIPTION</string>
+    <string name="holiday_planner_colon">Holiday Planner:</string>
+
+    <string name="error_title">Please enter title</string>
+    <string name="error_description">Please enter description</string>
+
+
+    <string name="language">Language</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+
+
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="dispatch">Dispatch</string>
+    <string name="cancel">Cancel</string>
+    <string name="delivery">Delivery</string>
+    <string name="delivery_return">Delivery Return</string>
+
+
+    <string name="no_order_found">No order found</string>
+    <string name="no_product_found">No product found</string>
+    <string name="expired">Expired</string>
+    <string name="start_on">Starts on %1$s</string>
+    <string name="expires_in_days">Expires in %1$s days</string>
+    <string name="expires_in_hours">Expires in %1$s hours</string>
+    <string name="expires_in_minutes">Expires in %1$s minutes</string>
+    <string name="expires_in_seconds">Expires in %1$s seconds</string>
+
+    <string name="order_new_empty">You don\'t have \n any New orders</string>
+    <string name="order_new_preview">Here you will have a preview \n of new orders from
+        customers</string>
+
+    <string name="order_processing_empty">You don\'t have \n any orders in progress</string>
+    <string name="order_processing_preview">Here you will have a preview \n of your order in
+        progress</string>
+
+    <string name="order_dispatch_empty">You don\'t have \n any orders Dispatched</string>
+    <string name="order_dispatch_preview">Here you will have a preview \n of your dispatched
+        orders</string>
+
+    <string name="order_delivery_empty">You don\'t have \n any orders Delivered</string>
+    <string name="order_delivery_preview">Here you will have a preview \n of your orders
+        delivery</string>
+
+    <string name="order_cancel_empty">You don\'t have \n any Cancelled orders</string>
+    <string name="order_cancel_preview">Here you will have a preview \n of your cancelled
+        orders</string>
+
+    <string name="discount_percentage">DISCOUNT PERCENTAGE</string>
+    <string name="already_featured">This product already featured</string>
+    <string name="shipping_cost_area">Shipping Cost-Area</string>
+    <string name="please_enter_shipping_cost">Please enter shipping cost</string>
+    <string name="choose_language">Choose Language</string>
+    <string name="please_choose_language">Please choose language</string>
+    <string name="vendor_app">Vendor App</string>
+    <string name="change_language">Change Language</string>
+
+    <string name="new_orders">New orders</string>
+    <string name="processing">Processing</string>
+    <string name="dispatched">Dispatched</string>
+    <string name="delivered">Delivered</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="dashboard">Dashboard</string>
+
+    <string name="please_enter_valid_password">Enter a valid password</string>
+    <string name="edit_product">Edit Product</string>
+    <string name="can_not_edit_main_category">Category cannot be changed</string>
+
+    <string name="product_empty">You don\'t have \n products</string>
+    <string name="product_empty_message">Here you will have a preview \n of your products</string>
+
+    <string name="promotion_empty">You don\'t have \n promotional products</string>
+    <string name="promotion_empty_message">Here you will have a preview \n of your promotional
+        products</string>
+
+    <string name="featured_empty">You don\'t have \n featured products</string>
+    <string name="featured_empty_message">Here you will have a preview \n of your featured
+        products</string>
+
+    <string name="please_tell_us_more_on_why_you_cancel_this_order">Please tell us more on
+        why you cancel this order</string>
+    <string name="cancel_order">Cancel order</string>
+    <string name="customer_phone">CUSTOMER PHONE:</string>
+
+    <string name="please_enter_cancel_reason">Please enter cancel reason</string>
+    <string name="valid_discount_price">Discount price should be less then the actual
+        price</string>
+    <string name="valid_delivery_slot">Please select at least one delivery slot</string>
+    <string name="valid_delivery_area">Please select at least one area</string>
+    <string name="error_per_day_capacity">Please enter the per day capacity</string>
+    <string name="error_handling_time_days">Please enter the preparation time (in days)</string>
+    <string name="currency">Currency</string>
+    <string name="add_product_close_alert">Are you sure you want to close the add product
+        screen?</string>
+
+    <string name="qty_with">Qty: %s</string>
+
+    <string name="delivery_date_with">Delivery Date: %s</string>
+    <string name="delivery_slot_with">Delivery Slot: %s</string>
+    <string name="shipping_cost_with">Shipping Cost: %s</string>
+
+    <string name="afternoon">Afternoon</string>
+
+    <string name="featured_product_facility_not_available">Featured product facility is tentatively
+        not available.</string>
+
+    <string name="already_promoted">This product is already promoted</string>
+
+    <string name="transaction_id_with">Transaction ID: %s</string>
+    <string name="transaction_failed">Your transaction has been failed, Please retry after some time.</string>
+    <string name="retry">Retry</string>
+    <string name="transaction_success_message">You have successfully purchased the featured
+        product</string>
+    <string name="buy">Buy</string>
+
+    <string-array name="new_order_status_array">
+        <item>@string/accept</item>
+        <item>@string/reject</item>
+    </string-array>
+
+    <string-array name="order_processing_status_array">
+        <item>@string/dispatch</item>
+       <!-- <item>@string/cancel</item> -->
+    </string-array>
+
+    <string-array name="order_dispatch_status_array">
+        <item>@string/delivery</item>
+        <item>@string/delivery_return</item>
+    <!-- <item>@string/cancel</item>-->
+</string-array>
+
+<string-array name="menu_array">
+    <item>@string/dashboard</item>
+    <item>@string/profile</item>
+    <item>@string/products</item>
+    <item>@string/featured</item>
+    <item>@string/promotion</item>
+    <item>@string/orders</item>
+    <item>@string/holiday_planner</item>
+    <item>@string/bank_information</item>
+    <item>@string/setting</item>
+</string-array>
+
+<!-- Don't translate this string -->
+    <string name="en">en</string>
+    <string name="ar">ar</string>
+
+    <string name="aed">AED</string>
+    <string name="sar">SAR</string>
+
+    <string-array name="language_key_array">
+        <item>@string/en</item>
+        <item>@string/ar</item>
+    </string-array>
+
+    <string-array name="language_array">
+        <item>@string/english</item>
+        <item>@string/arabic</item>
+    </string-array>
+
+
+    <string-array name="currency_array">
+        <item>@string/aed</item>
+        <item>@string/sar</item>
+    </string-array>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

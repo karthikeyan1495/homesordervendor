@@ -1,0 +1,346 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil" />
+
+        <variable
+            name="profileVM"
+            type="com.homesordervendor.user.profile.viewmodel.ProfileVM" />
+
+        <variable
+            name="profile"
+            type="com.homesordervendor.user.login.model.Profile" />
+
+        <variable
+            name="imageURL"
+            type="String"/>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_rect_bg"
+                            android:orientation="vertical"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:layout_marginTop="50dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="50dp"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_marginTop="14dp">
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:id="@+id/name"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/full_name"
+                                        android:textColor="@color/font_color_3"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_toLeftOf="@+id/name"
+                                        android:gravity="left"
+                                        android:text="@{profile.fullname}"
+                                        android:textColor="@color/font_color_1"
+                                        android:textSize="15sp" />
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="@color/lightGrey" />
+
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_marginTop="14dp">
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:id="@+id/email"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/email"
+                                        android:textColor="@color/font_color_3"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_toLeftOf="@+id/email"
+                                        android:gravity="left"
+                                        android:text="@{profile.email}"
+                                        android:textColor="@color/font_color_1"
+                                        android:textSize="15sp" />
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="@color/lightGrey" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_marginTop="15dp">
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:id="@+id/phonenumber"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/phone_number"
+                                        android:textColor="@color/font_color_3"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_toLeftOf="@+id/phonenumber"
+                                        android:gravity="left"
+                                        android:layout_marginRight="10dp"
+                                        android:text="@{profile.phone_no}"
+                                        android:textColor="@color/font_color_1"
+                                        android:textSize="15sp" />
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.5dp"
+                                    android:background="@color/font_color_3" />
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_marginTop="15dp">
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:id="@+id/shopname"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/shop_name"
+                                        android:textColor="@color/font_color_3"
+                                        android:textSize="15sp" />
+
+                                    <TextView
+                                        app:font="@{@string/san_francisco_text_medium}"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_toLeftOf="@+id/shopname"
+                                        android:gravity="left"
+                                        android:layout_marginRight="10dp"
+                                        android:text="@{profile.shopname}"
+                                        android:textColor="@color/font_color_1"
+                                        android:textSize="15sp" />
+
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                </LinearLayout>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:onClick="@{profileVM::onClickProfileImage}"
+                    tools:profileImage="@{imageURL}"
+                    android:id="@+id/profile_image"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:civ_border_color="@color/colorPrimary"
+                    android:src="@drawable/placeholder"
+                    app:civ_border_width="2dp"/>
+                <TextView
+                    android:visibility="gone"
+                    app:font="@{@string/san_francisco_text_medium}"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/circle_orange_bg"
+                    android:gravity="center"
+                    android:text="@{StringUtil.getFirstLatter(profile.fullname)}"
+                    android:textColor="@color/font_color_4"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:onClick="@{profileVM::onClickResetPassword}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ic_rect_bg">
+
+                <Button
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_right_arrow_angle"/>
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="right|center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reset_password"
+                    android:textColor="@color/font_color_3"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:onClick="@{profileVM::onClickAccountInformation}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/ic_rect_bg">
+                <Button
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_right_arrow_angle"/>
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:gravity="right|center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/account_information"
+                    android:textColor="@color/font_color_3"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:onClick="@{profileVM::onClickDeliverySlot}"
+                android:background="@drawable/ic_rect_bg"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_right_arrow_angle"/>
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:gravity="right|center"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delivery_slot"
+                    android:textColor="@color/font_color_3"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:onClick="@{profileVM::onClickShippingMethods}"
+                android:background="@drawable/ic_rect_bg"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_right_arrow_angle"/>
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:gravity="right|center"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shipping_cost_area"
+                    android:textColor="@color/font_color_3"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:onClick="@{profileVM::onClickSubscription}"
+                android:background="@drawable/ic_rect_bg"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/ic_right_arrow_angle"/>
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:gravity="right|center"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subscription"
+                    android:textColor="@color/font_color_3"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

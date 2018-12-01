@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil"/>
+        <import type="android.view.View"/>
+
+        <variable
+            name="isAreaEditable"
+            type="Boolean"/>
+
+        <variable
+            name="area"
+            type="com.homesordervendor.user.shippingarea.model.Area"/>
+
+        <variable
+            name="areaItemVM"
+            type="com.homesordervendor.user.shippingarea.viewmodel.AreaItemVM" />
+
+        <variable
+            name="state"
+            type="com.homesordervendor.user.shippingarea.model.State"/>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:clickable="@{isAreaEditable}"
+            android:onClick="@{(v) -> areaItemVM.onClickCheckBox(v,area,state)}"
+            android:checked="@={area.selected}"
+            android:id="@+id/checkbox"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:button="@drawable/custom_checkbox" />
+
+        <TextView
+            android:layout_toLeftOf="@+id/checkbox"
+            android:layout_toRightOf="@+id/price_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@{StringUtil.getLanguageName(area.areaNameEN,area.areaNameAR)}"
+            android:textColor="@color/font_color_1"
+            android:textSize="15sp"
+            app:font="@{@string/san_francisco_text_medium}" />
+
+        <LinearLayout
+            android:visibility="@{area.selected?View.VISIBLE:View.GONE}"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/price_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/price"
+                android:textColor="@color/font_color_3"
+                android:textSize="14sp"
+                app:font="@{@string/san_francisco_text_medium}" />
+
+            <EditText
+                android:imeOptions="actionDone"
+                android:textColor="@color/black"
+                android:padding="2dp"
+                android:gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:text="@={area.price}"
+                android:background="@drawable/ic_rect_bg"
+                android:inputType="numberDecimal"
+                android:theme="@style/TextInputTheme" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:text="@{StringUtil.getCurrency()}"
+                android:textColor="@color/font_color_3"
+                android:textSize="14sp"
+                app:font="@{@string/san_francisco_text_medium}" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

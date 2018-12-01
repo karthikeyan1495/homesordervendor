@@ -1,0 +1,284 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="productCatagoryVM"
+            type="com.homesordervendor.product.addproduct.viewmodel.ProductCatagoryVM"/>
+
+        <variable
+            name="productModel"
+            type="com.homesordervendor.product.addproduct.model.ProductModel"/>
+
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/choose_category"
+                android:textColor="@color/font_color_1"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:font="@{@string/san_francisco_text_medium}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:onClick="@{(v) -> productCatagoryVM.onClickFood(v,productModel)}">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/food"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black_Semi_transparent"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="10dp"
+                        android:button="@drawable/ic_orange_selector"
+                        android:checked="@{productModel.food}"
+                        android:clickable="false"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="10dp"
+                        android:text="@string/food"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:font="@{@string/san_francisco_text_medium}"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:onClick="@{(v) -> productCatagoryVM.onClickFashion(v,productModel)}">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fashion"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black_Semi_transparent"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="10dp"
+                        android:button="@drawable/ic_orange_selector"
+                        android:checked="@{productModel.fashion}"
+                        android:clickable="false"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="10dp"
+                        android:text="@string/fashion"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:font="@{@string/san_francisco_text_medium}"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/food_layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="@{productModel.food?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_sub_category"
+                    android:textColor="@color/font_color_1"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/textlines"
+                    android:drawableRight="@drawable/ic_down_arrow"
+                    android:onClick="@{(v) -> productCatagoryVM.onClickFoodSubCategory(v,productModel)}"
+                    android:paddingBottom="5dp"
+                    android:text="@{productModel.subCategoryName==null?@string/select_category:productModel.subCategoryName}"
+                    android:textColor="@color/font_color_1"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fashion_layout_option"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="@{productModel.fashion?View.VISIBLE:View.GONE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_target_group"
+                    android:textColor="@color/font_color_1"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/textlines"
+                    android:drawableRight="@drawable/ic_down_arrow"
+                    android:onClick="@{(v) -> productCatagoryVM.onClickFashionTargetGroup(v,productModel)}"
+                    android:paddingBottom="5dp"
+                    android:text="@{productModel.targetGroupName==null?@string/select_category:productModel.targetGroupName}"
+                    android:textColor="@color/font_color_1"
+                    android:textSize="15sp"
+                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:visibility="@{productModel.targetGroup?View.VISIBLE:View.GONE}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_sub_category"
+                        android:textColor="@color/font_color_1"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        app:font="@{@string/san_francisco_text_medium}"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/textlines"
+                        android:drawableRight="@drawable/ic_down_arrow"
+                        android:onClick="@{(v) -> productCatagoryVM.onClickFoodFashionTargetGroupSubCategory(v,productModel)}"
+                        android:paddingBottom="5dp"
+                        android:text="@{productModel.targetGroupSubCategoryName==null?@string/select_category:productModel.targetGroupSubCategoryName}"
+                        android:textColor="@color/font_color_1"
+                        android:textSize="16sp"
+                        app:font="@{@string/san_francisco_text_medium}"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:visibility="@{productModel.food?(productModel.foodSubCategory?View.VISIBLE:View.GONE):(productModel.fashion?(productModel.targetGroup?(productModel.targetGroupSubCategory?View.VISIBLE:View.GONE):View.GONE):View.GONE)}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_details"
+                    android:textColor="@color/font_color_1"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:font="@{@string/san_francisco_text_medium}"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/add_product_information_product_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:theme="@style/ProductTextInputTheme"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/add_product_information_product_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/textlines"
+                        android:hint="@string/product_name_english"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingBottom="5dp"
+                        android:text="@={productModel.productNameEnglish}"
+                        android:textColor="@color/font_color_1"
+                        android:theme="@style/ProductTextInputTheme"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/add_product_information_product_description_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ProductTextInputTheme"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/add_product_information_product_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textlines"
+                        android:gravity="top"
+                        android:hint="@string/product_description_english"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:minHeight="100dp"
+                        android:paddingBottom="5dp"
+                        android:text="@={productModel.productDescriptionEnglish}"
+                        android:textColor="@android:color/black"
+                        android:theme="@style/ProductTextInputTheme"/>
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

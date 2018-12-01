@@ -1,0 +1,87 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="productImageVM"
+            type="com.homesordervendor.product.addproduct.viewmodel.ProductImageVM" />
+
+        <variable
+            name="imageURI"
+            type="com.homesordervendor.product.addproduct.model.ImageURI" />
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.homesordervendor.product.addproduct.ProductImageFragment">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/add_front_image"
+                android:textColor="@color/font_color_1"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:font="@{@string/san_francisco_text_medium}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/ic_rect_bg"
+                android:onClick="@{productImageVM::onClickFrontImage}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:scaleType="centerCrop"
+                    tools:productFrontImage="@{imageURI.uri}" />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ic_add_product"
+                    android:visibility="@{imageURI.image?View.GONE:View.VISIBLE}" />
+
+                <Button
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/ic_menu_close"
+                    android:onClick="@{(v) -> productImageVM.onClickFrontImageDelete(v,imageURI)}"
+                    android:visibility="@{imageURI.image?View.VISIBLE:View.GONE}" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/add_featured_image"
+                android:textColor="@color/font_color_1"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:font="@{@string/san_francisco_text_medium}" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

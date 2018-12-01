@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.homesordervendor.util.StringUtil" />
+
+        <variable
+            name="promotionVM"
+            type="com.homesordervendor.product.promotion.viewmodel.PromotionVM" />
+
+        <variable
+            name="productItem"
+            type="com.homesordervendor.product.productlist.model.ProductItem" />
+
+        <variable
+            name="promotion"
+            type="com.homesordervendor.product.promotion.model.Promotion" />
+
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_tool_bar_height"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/toggle_action"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_back_black"
+                        android:onClick="@{promotionVM::onClickClose}" />
+
+                    <ImageView
+                        android:layout_width="@dimen/app_tool_bar_logo_width"
+                        android:layout_height="@dimen/app_tool_bar_logo_height"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/ic_logo_black" />
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/set_promotion"
+                android:layout_alignParentTop="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/promotion_colon"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="24sp"
+                            app:font="@{@string/san_francisco_text_bold}" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/ic_rect_bg"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="10dp"
+                                    android:scaleType="centerCrop"
+                                    tools:productImage="@{productItem.media.get(0)}" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/product_name"
+                                    android:textColor="@color/font_color_3"
+                                    android:textSize="14sp"
+                                    app:font="@{@string/san_francisco_text_bold}" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@{StringUtil.getLanguageName(productItem.productNameEN,productItem.productNameAR)}"
+                                    android:textColor="@color/font_color_1"
+                                    android:textSize="20sp"
+                                    app:font="@{@string/san_francisco_text_bold}" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/category_cabs"
+                                    android:textColor="@color/font_color_3"
+                                    android:textSize="14sp"
+                                    app:font="@{@string/san_francisco_text_bold}" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@{StringUtil.promotionCategoryParsing(productItem)}"
+                                    android:textColor="@color/font_color_1"
+                                    android:textSize="14sp"
+                                    app:font="@{@string/san_francisco_text_bold}" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/price"
+                                android:textColor="@color/font_color_3"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@{StringUtil.setPrice(productItem.price,productItem.priceInSAR)}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/discount_price"
+                                android:textColor="@color/font_color_3"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+
+                            <EditText
+                                android:onTextChanged="@{(text, start, before, count) -> promotionVM.onDiscountPriceTextChanged(text, start, before, count,promotion)}"
+                                android:id="@+id/discount_price"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/textlines"
+                                android:paddingBottom="5dp"
+                                android:inputType="numberDecimal"
+                                android:text="@={promotion.discountPrice}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@{StringUtil.getCurrency()}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+                        </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/discount_percentage"
+                            android:textColor="@color/font_color_3"
+                            android:textSize="14sp"
+                            app:font="@{@string/san_francisco_text_semibold}" />
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@{promotion.discount}"
+                            android:textColor="@color/font_color_1"
+                            android:textSize="14sp"
+                            app:font="@{@string/san_francisco_text_semibold}" />
+
+                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/from"
+                                android:textColor="@color/font_color_3"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+
+                            <TextView
+                                android:id="@+id/from"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:background="@drawable/textlines"
+                                android:drawableRight="@drawable/ic_calendar"
+                                android:onClick="@{(v) -> promotionVM.onClickFromDate(v,promotion)}"
+                                android:paddingBottom="5dp"
+                                android:text="@{StringUtil.getDataFormat(promotion.fromDate)}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="170dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="@string/to"
+                                android:textColor="@color/font_color_3"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+
+                            <TextView
+                                android:id="@+id/to"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:background="@drawable/textlines"
+                                android:drawableRight="@drawable/ic_calendar"
+                                android:onClick="@{(v) -> promotionVM.onClickToDate(v,promotion)}"
+                                android:paddingBottom="5dp"
+                                android:text="@{StringUtil.getDataFormat(promotion.toDate)}"
+                                android:textColor="@color/font_color_1"
+                                android:textSize="14sp"
+                                app:font="@{@string/san_francisco_text_semibold}" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+            </ScrollView>
+
+            <Button
+                android:id="@+id/set_promotion"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="@{(v) -> promotionVM.onClickToSetPromotion(v,promotion)}"
+                android:text="@string/set_promotion"
+                android:textAllCaps="false"
+                android:textColor="@color/font_color_4"
+                android:textSize="18sp"
+                app:font="@{@string/san_francisco_text_semibold}" />
+
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</layout>
